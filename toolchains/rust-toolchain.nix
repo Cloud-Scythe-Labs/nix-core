@@ -1,7 +1,7 @@
-{ lib, pkgs, fenix, system }:
+{ lib, pkgs, fenix, system, toml_path }:
 let
   fenix-pkgs = (fenix.packages.${system}.fromToolchainFile {
-    file = ./rust-toolchain.toml;
+    file = toml_path;
     sha256 = "sha256-opUgs6ckUQCyDxcB9Wy51pqhd0MPGHUVbwRKKPGiwZU=";
   });
   darwin-pkgs = (with pkgs; lib.optionals stdenv.isDarwin [
