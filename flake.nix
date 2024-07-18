@@ -11,7 +11,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, fenix, ... }:
+  outputs = { fenix, ... }:
     let
       rustToolchainFromTOML = import ./toolchains/rust-toolchain.nix;
     in
