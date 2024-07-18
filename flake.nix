@@ -18,17 +18,18 @@
     {
       # Handles building project specific toolchains.
       toolchains = {
-        # Assumes a `rust-toolchain.toml` is present in the project root
-        # and produces the toolchain from it for the given system.
+        # Given the path to a `rust-toolchain.toml`, produces the derivation
+        # for that toolchain for linux and darwin systems.
         # Useful for rust projects that declare a `rust-toolchain.toml`.
-        mkRustToolchainFromTOML = lib: pkgs: system: toml_path:
+        mkRustToolchainFromTOML = lib: pkgs: system: toml_path: hash:
           rustToolchainFromTOML {
             inherit
               lib
               pkgs
               fenix
               system
-              toml_path;
+              toml_path
+              hash;
           };
       };
     };

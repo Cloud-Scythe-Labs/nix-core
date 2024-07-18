@@ -1,8 +1,8 @@
-{ lib, pkgs, fenix, system, toml_path }:
+{ lib, pkgs, fenix, system, toml_path, hash }:
 let
   fenix-pkgs = (fenix.packages.${system}.fromToolchainFile {
     file = toml_path;
-    sha256 = "sha256-opUgs6ckUQCyDxcB9Wy51pqhd0MPGHUVbwRKKPGiwZU=";
+    sha256 = hash;
   });
   darwin-pkgs = (with pkgs; lib.optionals stdenv.isDarwin [
     # Additional darwin specific inputs
