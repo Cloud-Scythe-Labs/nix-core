@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    utils.url = "github:numtide/flake-utils";
+    flake-utils.url = "github:numtide/flake-utils";
 
     fenix = {
       url = "github:nix-community/fenix";
@@ -13,8 +13,8 @@
     };
   };
 
-  outputs = { nixpkgs, utils, fenix, ... }:
-    utils.lib.eachDefaultSystem (system:
+  outputs = { nixpkgs, flake-utils, fenix, ... }:
+    flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
         inherit (pkgs) lib;
